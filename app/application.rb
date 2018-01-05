@@ -38,4 +38,13 @@ class Application
       return "Couldn't find #{search_term}"
     end
   end
+
+  def add_item(search_term)
+    if @@items.include?(search_term)
+      @@cart << search_term
+      resp.write "added #{search_term}"
+    else
+      resp.write "Sorry! We don't have that item."
+    end
+  end
 end
